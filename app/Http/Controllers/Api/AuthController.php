@@ -28,7 +28,7 @@ class AuthController extends Controller
 
         return response()->json([
             "message" => "User registered successfully!"
-        ]);
+        ], 201);
     }
 
     public function login(Request $request) {
@@ -43,7 +43,7 @@ class AuthController extends Controller
         if (!Auth::attempt($credentials)) {
             return response()->json([
                 "message" => "Invalid email or password"
-            ]);
+            ], 401);
         }
 
         $user = $request->user();
@@ -54,7 +54,7 @@ class AuthController extends Controller
 
         return response()->json([
             "user" => $user
-        ]);
+        ], 200);
     }
 
     public function hello() {
