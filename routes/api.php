@@ -28,6 +28,7 @@ Route::namespace('Api')->group(function() {
     ], function() {
 
         Route::get('hello', 'AuthController@hello');
+        Route::post('logout', 'AuthController@logout');
 
     });
 
